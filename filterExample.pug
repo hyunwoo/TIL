@@ -1,0 +1,43 @@
+d
+    script(src="https://code.jquery.com/jquery-3.3.1.js",
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=",
+    crossorigin="anonymous")
+  body
+    h1= title
+    p Welcome to #{title}
+    select(index=0)
+      option ALL
+      option 남
+      option 여
+
+    select(index=1)
+      option ALL
+      option 2010
+      option 2014
+      option 2016
+
+    select(index=2)
+      option ALL
+      option TEMPLATE
+      option JADE
+      option JQUERY
+
+    .button 검색!!
+    //script(src='/javascripts/filter.js')
+    script.
+        const filters = ['ALL', 'ALL', 'ALL'];
+
+        $('select').on('change', function () {
+            const $this = $(this);
+            const $selectedOption = $this.find('option:selected');
+            const currentFilter = $selectedOption.text();
+
+            const index = $this.attr('index') * 1;
+
+
+            filters[index] = currentFilter;
+            console.log(filters);
+
+
+        });
+
